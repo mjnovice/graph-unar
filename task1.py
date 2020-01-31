@@ -1,4 +1,5 @@
 import sqlite3
+import sys
 from sqlite3 import Error
 from matplotlib import pyplot as plt
 import cv2
@@ -262,7 +263,7 @@ def get_bar_coords(bar_texts,im):
     plt.imshow(im)
     return bar_coords
 if __name__=='__main__':
-    img = cv2.imread('barchart.png')
+    img = cv2.imread(sys.argv[1])
     xaxis_texts, yaxis_texts, bb = get_split_components(img)
 
     bar_texts = get_bar_texts(img,bb,"bt") #key pattern bt<int>
